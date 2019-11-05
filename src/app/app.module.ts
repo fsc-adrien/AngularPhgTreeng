@@ -30,6 +30,10 @@ import {MessagesComponent} from './messages/messages.component';
 import {PackageSearchComponent} from './package-search/package-search.component';
 import {UploaderComponent} from './uploader/uploader.component';
 
+import { BallAComponent } from './ball-a/ball-a.component';
+import { BaleAComponent } from './ball-a/bale-a.component';
+import { BaleBComponent } from './ball-a/bale-b.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +49,9 @@ import {UploaderComponent} from './uploader/uploader.component';
     MessagesComponent,
     UploaderComponent,
     PackageSearchComponent,
+    BallAComponent,
+    BaleAComponent,
+    BaleBComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +89,7 @@ import {UploaderComponent} from './uploader/uploader.component';
         //   }
         // ]
       },
+      { path: 'ball', component: BallAComponent },
     ])
   ],
   providers: [
