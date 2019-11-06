@@ -70,7 +70,7 @@ export class BaleBComponent {
 // // Subscribe to create the request
 //     apiData.subscribe(res => console.log(res.status, res.response));
 // ============= Tip 4 AJAX =============
-    const apiData = ajax('/api/data').pipe(
+    const apiData = ajax('https://api.github.com/users/seeschweiler').pipe(
       retry(3), // Retry up to 3 times before failing
       map(res => {
         if (!res.response) {
