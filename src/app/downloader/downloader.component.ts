@@ -15,7 +15,7 @@ export class DownloaderComponent {
   }
 
   download() {
-    this.downloaderService.getTextFile('assets/textfile.txt')
+    this.downloaderService.getTextFile('src/assets/textfile.txt')
       .subscribe(results => this.contents = results);
   }
 }

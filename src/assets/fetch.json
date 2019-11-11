@@ -1,4 +1,4 @@
 {
-  "heroesUrl": "api/heroes",
+  "heroesUrl": "api/heroes/hehe",
   "textfile": "assets/textfile.txt"
 }

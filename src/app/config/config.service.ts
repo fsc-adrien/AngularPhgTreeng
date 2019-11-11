@@ -12,14 +12,14 @@ export interface Config {
 
 @Injectable()
 export class ConfigService {
-  configUrl = 'assets/config.json';
+  configUrl = 'https://api.github.com/users/seeschweiler';
 
   constructor(private http: HttpClient) { }
 
   getConfig() {
     return this.http.get<Config>(this.configUrl)
       .pipe(
-        retry(3), // retry a failed request up to 3 times
+        retry(2), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error
       );
   }

@@ -11,14 +11,14 @@ import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token',
+    'Content-Type':  'application/json; charset=utf-8',
+    // 'Authorization': 'my-auth-token',
   })
 };
 
 @Injectable()
 export class HeroesService {
-  heroesUrl = '/';  // URL to web api
+  heroesUrl = 'https://api.github.com/users/seeschweiler';  // URL to web api
   private handleError: HandleError;
 
   constructor(
