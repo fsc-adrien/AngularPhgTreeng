@@ -14,15 +14,17 @@ interface Course {
 
 @Component({
   selector: 'app-bale-b',
-  template: `<ul *ngIf="courses$ | async as courses else noData">
-          <li *ngFor="let course of courses;">
-              {{course.company}}
-          </li>
-      </ul>
-      <ng-template #noData>No Data Available</ng-template>`
+  // template: `<ul *ngIf="courses$ | async as courses else noData">
+  //         <li *ngFor="let course of courses;">
+  //             {{course.company}}
+  //         </li>
+  //     </ul>
+  //     <ng-template #noData>No Data Available</ng-template>`
+  templateUrl: 'bale-b.component.html'
 })
 export class BaleBComponent implements OnInit {
   courses$: Observable<Course[]>;
+  private Rx: any;
 
   constructor(private http: HttpClient) {
   }
@@ -45,4 +47,25 @@ export class BaleBComponent implements OnInit {
       error(err) { console.log('errors already caught... will not run'); }
     });
   }
+
+  handleButtonClick2(url) {
+    return this.Rx.Observable.fromPromise(    // Chúng ta lấy một cái Promise và vứt vào một luồng Observable
+      new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function Success() {
+          if (this.readyState === xhr.DONE) {
+            resolve(JSON.parse(xhr.responseText));
+          }
+        };
+        xhr.open('GET', url, true);
+        xhr.send();
+        // tslint:disable-next-line:only-arrow-functions
+        xhr.onerror = function(error) {
+          reject('Error');
+        };
+      })
+    );
+  }
+
+
 }

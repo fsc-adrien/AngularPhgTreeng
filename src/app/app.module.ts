@@ -33,6 +33,7 @@ import {UploaderComponent} from './uploader/uploader.component';
 import { BallAComponent } from './ball-a/ball-a.component';
 import { BaleAComponent } from './ball-a/bale-a.component';
 import { BaleBComponent } from './ball-a/bale-b.component';
+import { RxsampleComponent } from './rxsample/rxsample.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { BaleBComponent } from './ball-a/bale-b.component';
     PackageSearchComponent,
     BallAComponent,
     BaleAComponent,
-    BaleBComponent
+    BaleBComponent,
+    RxsampleComponent
   ],
   imports: [
     BrowserModule,
@@ -82,12 +84,12 @@ import { BaleBComponent } from './ball-a/bale-b.component';
       { path: 'shipping', component: ShippingComponent },
       { path: 'service',
         component: HttpClientComponent,
-        // children: [
-        //   {
-        //     path: 'hero',
-        //     component: HeroesComponent,
-        //   }
-        // ]
+        children: [
+          {
+            path: 'hero',
+            component: HeroesComponent,
+          }
+        ]
       },
       { path: 'ball', component: BallAComponent },
     ])
