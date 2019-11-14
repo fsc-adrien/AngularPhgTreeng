@@ -34,6 +34,8 @@ import { BallAComponent } from './ball-a/ball-a.component';
 import { BaleAComponent } from './ball-a/bale-a.component';
 import { BaleBComponent } from './ball-a/bale-b.component';
 import { RxsampleComponent } from './rxsample/rxsample.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import {NguCarouselModule} from "@ngu/carousel";
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { RxsampleComponent } from './rxsample/rxsample.component';
     BallAComponent,
     BaleAComponent,
     BaleBComponent,
-    RxsampleComponent
+    RxsampleComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,11 +81,12 @@ import { RxsampleComponent } from './rxsample/rxsample.component';
       }
     ),
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'shipping', component: ShippingComponent },
-      { path: 'service',
+      {path: '', component: ProductListComponent},
+      {path: 'products/:productId', component: ProductDetailsComponent},
+      {path: 'cart', component: CartComponent},
+      {path: 'shipping', component: ShippingComponent},
+      {
+        path: 'service',
         component: HttpClientComponent,
         children: [
           {
@@ -91,8 +95,12 @@ import { RxsampleComponent } from './rxsample/rxsample.component';
           }
         ]
       },
-      { path: 'ball', component: BallAComponent },
-    ])
+      {path: 'ball', component: BallAComponent},
+      {path: 'rxjs', component: RxsampleComponent},
+      {path: 'home', component: HomepageComponent},
+
+    ]),
+    NguCarouselModule
   ],
   providers: [
     AuthService,

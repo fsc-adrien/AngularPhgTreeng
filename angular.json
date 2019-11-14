@@ -128,5 +128,10 @@
       }
     }
   },
-  "defaultProject": "demo-Project"
+  "defaultProject": "demo-Project",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

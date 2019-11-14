@@ -9,17 +9,33 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img
-    width="130"
-    alt="Angular Logo"
-    src="https://www.ominext.com/themes/omiintro/assets/image/logo.svg"
-  />
-  <a [routerLink]="['/']"><span>Welcome</span></a>
+
+  <div class="sticky-menu"
+       #stickyMenu
+       [class.sticky] = "sticky">
+    <div class="navbar-brand">
+      <img
+        width="170"
+        alt="Angular Logo"
+        src="https://www.ominext.com/themes/omiintro/assets/image/logo.svg"
+      />
+    </div>
+  </div>
+
+  <nav class="navbar-light">
+    <ul class="dynamic-menu">
+      <li class="is-active"><a>Pictures</a></li>
+      <li><a>Music</a></li>
+      <li><a>Videos</a></li>
+      <li><a>Documents</a></li>
+    </ul>
+  </nav>
 
   <div class="spacer"></div>
-  <h3>
-    <a [routerLink]="['/cart']" class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
-  </h3>
+  <div class="cart-wrapper" #stickyMenu
+      [class.sticky] = "sticky">
+    <a [routerLink]="['/cart']" class="button fancy-button"><i class="material-icons">shopping_cart</i></a>
+  </div>
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

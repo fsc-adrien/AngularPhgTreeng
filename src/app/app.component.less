@@ -1,6 +1,3 @@
-.component-wrapper{
-  padding: 10px;
-}
  :host {
    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
    font-size: 14px;
@@ -287,3 +284,36 @@ svg#clouds {
   }
 }
 // Custom CSS
+ .sticky{
+   position: fixed;
+   top: 0;
+   overflow: hidden;
+   z-index: 10;
+   width: 100%;
+   height: 65px;
+   vertical-align: middle;
+   display: flex;
+   align-items: center;
+   background-color: #ffffff;
+   &.cart-wrapper{
+     right: 15px;
+     width: unset;
+   }
+ }
+ .navbar-light {width: 100%;}
+
+.dynamic-menu {
+   width: 100%;
+   list-style: none;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 0;
+
+  a{
+    margin: 0;
+  }
+
+
+
+ }

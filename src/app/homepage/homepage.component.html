@@ -1,0 +1,58 @@
+
+
+<!--&lt;!&ndash; this is the main navbar &ndash;&gt;-->
+<!--<nav class="navbar is-light">-->
+<!--  <div class="navbar-brand">-->
+<!--    <a class="navbar-item title is-3">-->
+<!--      myCompany-->
+<!--    </a>-->
+<!--  </div>-->
+
+<!--  <div class="navbar-menu">-->
+<!--    <div class="navbar-end">-->
+<!--      <a class="navbar-item is-active">menuItem1</a>-->
+<!--      <a class="navbar-item">menuItem2</a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<!--&lt;!&ndash; this is the sticky menu &ndash;&gt;-->
+<!--<div class="tabs is-centered is-fullwidth"-->
+<!--     #stickyMenu-->
+<!--     [class.sticky] = "sticky">-->
+<!--  <ul>-->
+<!--    <li class="is-active"><a>Pictures</a></li>-->
+<!--    <li><a>Music</a></li>-->
+<!--    <li><a>Videos</a></li>-->
+<!--    <li><a>Documents</a></li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; this is a fake long content; we need it so we can scroll down &ndash;&gt;-->
+<!--<div class="content"></div>-->
+
+
+
+<ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="carouselTileItems$ | async">
+  <ngu-tile *nguCarouselDef="let item; let i = index; let ani = animate"> <!-- [@slider]="ani" PLease this animation to this tile to see animation. stackblitz have error with animations -->
+    <div class="tile" [style.background]="'url('+item+')'">
+<!--      <h1>{{i + 1}}</h1>-->
+    </div>
+  </ngu-tile>
+
+  <button NguCarouselPrev class="leftRs button" [style.opacity]="myCarousel.isFirst ? 0.5:1">&lt;</button>
+  <button NguCarouselNext class="rightRs button" [style.opacity]="myCarousel.isLast ? 0.5:1">&gt;</button>
+
+  <ul class="myPoint" NguCarouselPoint>
+    <li *ngFor="let i of myCarousel.pointNumbers; let i = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(i)"></li>
+  </ul>
+</ngu-carousel>
+<div class="new-badge">
+  <img src="//cdn.shopify.com/s/files/1/0110/9413/0750/t/43/assets/spinning-new.svg?17499" class="spinning">
+  <img src="//cdn.shopify.com/s/files/1/0110/9413/0750/t/43/assets/icon-new.svg?17499" class="icon-badge">
+</div>
+
+<div class="new-badge">
+  <img src="//cdn.shopify.com/s/files/1/0110/9413/0750/t/43/assets/spinning-best.svg?17499" class="spinning">
+  <img src="//cdn.shopify.com/s/files/1/0110/9413/0750/t/43/assets/icon-best.svg?17499" class="icon-badge">
+</div>
