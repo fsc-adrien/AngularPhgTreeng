@@ -1,0 +1,25 @@
+<h2>Firebase Authentication</h2>
+<h1 *ngIf="authenticationService.userData | async">Hello {{ (authenticationService.userData | async)?.email }}</h1>
+
+<div *ngIf="!(authenticationService.userData | async)">
+  <input type="text" [(ngModel)]="email" placeholder="email">
+  <input type="password" [(ngModel)]="password" placeholder="password">
+
+  <button (click)="signUp()">Sign Up</button>
+
+  <button (click)="signIn()">Login</button>
+</div>
+
+<button (click)="signOut()" *ngIf="authenticationService.userData | async">Logout</button>
+<h2>End Firebase Authentication</h2>
+<h2>============================================</h2>
+<h2>Firebase Database</h2>
+
+<div>
+  <input type="text" [(ngModel)]="name" placeholder="name">
+  <input type="text" [(ngModel)]="email2" placeholder="email">
+  <input type="number" [(ngModel)]="contact" placeholder="contact">
+
+  <button (click)="addUser()">Sign Up</button>
+
+</div>

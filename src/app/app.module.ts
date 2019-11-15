@@ -35,8 +35,17 @@ import { BaleAComponent } from './ball-a/bale-a.component';
 import { BaleBComponent } from './ball-a/bale-b.component';
 import { RxsampleComponent } from './rxsample/rxsample.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import {NguCarouselModule} from "@ngu/carousel";
+import {NguCarouselModule} from '@ngu/carousel';
+import { FirebaserdComponent } from './firebaserd/firebaserd.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +66,7 @@ import {NguCarouselModule} from "@ngu/carousel";
     BaleBComponent,
     RxsampleComponent,
     HomepageComponent,
+    FirebaserdComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +75,11 @@ import {NguCarouselModule} from "@ngu/carousel";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AngularFirestoreModule,     // Only required for database features
+    AngularFireAuthModule,     // Only required for auth features,
+    AngularFireStorageModule,   // Only required for storage features
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'My-Xsrf-Cookie',
       headerName: 'My-Xsrf-Header',
@@ -98,6 +113,7 @@ import {NguCarouselModule} from "@ngu/carousel";
       {path: 'ball', component: BallAComponent},
       {path: 'rxjs', component: RxsampleComponent},
       {path: 'home', component: HomepageComponent},
+      {path: 'firebase', component: FirebaserdComponent},
 
     ]),
     NguCarouselModule

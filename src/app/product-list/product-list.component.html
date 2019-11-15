@@ -1,9 +1,9 @@
 <h2>List of Products</h2>
 <div class="product-list-section">
   <div class="product-blocks"*ngFor="let product of products; index as productId">
-    <a [routerLink]="['/products', productId]">
-      <img src="{{ product.src }}" alt="">
-    </a>
+<!--    <a [routerLink]="['/products', productId]">-->
+<!--      <img src="{{ product.src }}" alt="">-->
+<!--    </a>-->
     <div class="product-name">
       <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
         {{ product.name }}
